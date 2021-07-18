@@ -3,6 +3,7 @@ package com.example.momo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,16 +15,17 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class UserInfoInputActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info_input);
-        Intent intent = getIntent();
-        Long username = intent.getLongExtra("id", 0);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
         TextView userName = findViewById(R.id.userName);
         Button logoutButton = findViewById(R.id.logout_btn);
-        userName.setText(username.toString());
+        long id = sharedPreferences.getLong("userId", 0);
+        userName.setText(String.valueOf(id));
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private final static String TAG = "유저";
     private Button kakaoAuth, googleAuth;
     public static Context mContext;
+    private SharedPreferences sharedPreferences;
+    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if (oAuthToken != null) {
-                    // TBD
+                    Log.i("user", oAuthToken.getAccessToken() + " " + oAuthToken.getRefreshToken());
                 }
                 if (throwable != null) {
                     // TBD
@@ -46,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 return null;
             }
         };
-
+        sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
         kakaoAuth = findViewById(R.id.kakao_auth_button);
         googleAuth = findViewById(R.id.google_auth_button);
         kakaoAuth.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         updateKakaoLoginUi();
-
     }
 
     public void updateKakaoLoginUi() {
@@ -70,9 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     Log.i(TAG, "id" + user.getId());
                     Log.i(TAG, "invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putLong("userId", user.getId());
+                    editor.putString("userNickName", user.getKakaoAccount().getProfile().getNickname());
+                    editor.apply();
                     Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    intent.putExtra("user", user.getKakaoAccount().getProfile().getNickname());
-                    intent.putExtra("id", user.getId());
                     startActivity(intent);
                     finish();
                 }
