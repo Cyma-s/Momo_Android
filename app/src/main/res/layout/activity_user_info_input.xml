@@ -8,11 +8,13 @@
     tools:context=".UserInfoInputActivity">
 
     <TextView
-        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="200dp"
-        android:text=""/>
+        android:layout_marginTop="200dp"
+        android:textColor="@color/basic_black"
+        android:textSize="22sp"
+        android:fontFamily="@font/nbold"
+        android:text="닉네임을 정해보세요"/>
 
     <Button
         android:id="@+id/logout_btn"
