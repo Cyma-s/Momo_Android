@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back_white"
     tools:context=".LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/regular"
+        android:text="momo"
+        android:textColor="@color/yellow"
+        android:textSize="40sp"
+        />
+    <Button
+        android:id="@+id/google_auth_button"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/authimgbtn"
+        android:paddingLeft="120dp"
+        android:drawablePadding="-100dp"
+        android:text="구글 로그인"
+        android:fontFamily="@font/nregular"
+        android:textSize="16sp"
+        android:textColor="@color/basic_black"
+        android:background="@drawable/rounded_border"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"
+        android:elevation="20dp">
+
+
+    </Button>
+
+    <Button
+        android:id="@+id/kakao_auth_button"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/kakao_logo"
+        android:paddingLeft="100dp"
+        android:drawablePadding="-85dp"
+        android:text="카카오톡 로그인"
+        android:fontFamily="@font/nregular"
+        android:textSize="16sp"
+        android:textColor="@color/basic_black"
+        android:background="@drawable/rounded_border"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"/>
+
+</LinearLayout>
