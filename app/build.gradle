@@ -39,6 +39,9 @@ dependencies {
     implementation "com.kakao.sdk:v2-story:2.4.2" // 카카오스토리
     implementation "com.kakao.sdk:v2-link:2.4.2" // 메시지(카카오링크)
     implementation "com.kakao.sdk:v2-navi:2.4.2" // 카카오내비
+    implementation 'com.android.volley:volley:1.2.0'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.32'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
