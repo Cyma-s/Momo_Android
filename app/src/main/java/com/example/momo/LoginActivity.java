@@ -3,6 +3,7 @@ package com.example.momo;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,11 +23,14 @@ import kotlin.jvm.functions.Function2;
 public class LoginActivity extends AppCompatActivity {
     private final static String TAG = "유저";
     private Button kakaoAuth, googleAuth;
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mContext = this;
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
@@ -55,19 +59,20 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
         updateKakaoLoginUi();
 
     }
 
-    private void updateKakaoLoginUi() {
+    public void updateKakaoLoginUi() {
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
                 if (user != null) {
+                    Log.i(TAG, "id" + user.getId());
                     Log.i(TAG, "invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
-                    Intent intent = new Intent(getApplicationContext(), UserInfoInputActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
                     intent.putExtra("user", user.getKakaoAccount().getProfile().getNickname());
+                    intent.putExtra("id", user.getId());
                     startActivity(intent);
                     finish();
                 }

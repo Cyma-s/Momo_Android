@@ -8,7 +8,6 @@ public class GlobalApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         KakaoSdk.init(this, "82f5cb2e90721109d9a01b2ebcbe8367");
     }
 }
