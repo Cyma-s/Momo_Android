@@ -22,10 +22,10 @@ public class UserInfoInputActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
-        TextView userName = findViewById(R.id.userName);
+        TextView userName = findViewById(R.id.nickname_edittext);
         Button logoutButton = findViewById(R.id.logout_btn);
-        long id = sharedPreferences.getLong("userId", 0);
-        userName.setText(String.valueOf(id));
+        String id = sharedPreferences.getString("userNickName", "");
+        userName.setText(id);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
