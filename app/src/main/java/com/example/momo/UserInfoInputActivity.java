@@ -60,8 +60,7 @@ public class UserInfoInputActivity extends AppCompatActivity {
     public Bitmap StringToBitmap(String imgString){
         try {
             byte[] encodeByte = Base64.getDecoder().decode(imgString);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
+            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
