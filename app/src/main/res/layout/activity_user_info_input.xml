@@ -53,20 +53,13 @@
         android:text="캐릭터를 골라보세요"
         android:layout_marginStart="25dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/userProfileImage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="100dp">
-
-        <Button
-            android:id="@+id/characterButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/circlebutton" />
-
-    </LinearLayout>
-
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:src="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/logout_btn"
