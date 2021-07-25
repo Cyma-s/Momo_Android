@@ -12,5 +12,6 @@
     <color name="back_white">#F6F6F6</color>
     <color name="edittext_back">#F1F1F5</color>
     <color name="grey">#999999</color>
+    <color name="button_grey">#707070</color>
     <color name="splash_background">#FFD91F</color>
 </resources>

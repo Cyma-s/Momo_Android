@@ -32,6 +32,7 @@ public class UserInfoInputActivity extends AppCompatActivity {
         TextView userName = findViewById(R.id.nickname_edittext);
         Button logoutButton = findViewById(R.id.logout_btn);
         ImageView imageView = findViewById(R.id.userProfileImage);
+        Button nextButton = findViewById(R.id.nextButton);
 
         String userImageString = sharedPreferences.getString("userImage", "");
         Log.i("userInfo", userImageString);
@@ -39,6 +40,15 @@ public class UserInfoInputActivity extends AppCompatActivity {
         String id = sharedPreferences.getString("userNickName", "");
         userName.setText(id);
         imageView.setImageBitmap(userImage);
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserInfoInputActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
