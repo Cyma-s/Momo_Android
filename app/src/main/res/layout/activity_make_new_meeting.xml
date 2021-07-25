@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MakeNewMeetingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backbutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@null"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nbold"
+                android:includeFontPadding="false"
+                android:text="새 모임 생성"
+                android:textColor="@color/basic_black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menubutton"
+                app:layout_constraintHorizontal_bias="0.091"
+                app:layout_constraintStart_toEndOf="@+id/backbutton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.515" />
+
+            <ImageButton
+                android:id="@+id/menubutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:src="@drawable/menubar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모임 이름"
+        android:fontFamily="@font/nbold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="35dp"
+        android:textSize="24sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/yellow"/>
+    
+    <EditText
+        android:id="@+id/newMeetingName"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/nmed"
+        android:includeFontPadding="false"
+        android:textColor="@color/basic_black"
+        android:textColorHint="@color/basic_black"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:elevation="10dp"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:background="@drawable/basic_edittext_round"
+        android:hint="이름을 정해보세요"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:fontFamily="@font/nregular"
+        android:includeFontPadding="false"
+        android:text="*20자 이내여야 해요."
+        android:textColor="@color/grey"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인원수"
+        android:fontFamily="@font/nbold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="35dp"
+        android:textSize="24sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/yellow"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/twoPeople"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:textColor="@color/button_grey"
+            android:text="2"
+            android:textSize="17sp"
+            android:elevation="10dp"
+            android:translationZ="3dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/circlebutton"/>
+
+        <Button
+            android:id="@+id/threePeople"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:textColor="@color/button_grey"
+            android:text="3"
+            android:textSize="17sp"
+            android:layout_marginStart="30dp"
+            android:elevation="10dp"
+            android:translationZ="3dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/circlebutton"/>
+
+        <Button
+            android:id="@+id/fourPeople"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:textColor="@color/button_grey"
+            android:text="4"
+            android:textSize="17sp"
+            android:layout_marginStart="30dp"
+            android:elevation="10dp"
+            android:translationZ="3dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/circlebutton"/>
+
+        <Button
+            android:id="@+id/fivePeople"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:textColor="@color/button_grey"
+            android:text="5"
+            android:textSize="17sp"
+            android:layout_marginStart="30dp"
+            android:elevation="10dp"
+            android:translationZ="3dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/circlebutton"/>
+
+        <Button
+            android:id="@+id/sixPeople"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:textColor="@color/button_grey"
+            android:layout_marginStart="30dp"
+            android:text="6"
+            android:textSize="17sp"
+            android:elevation="10dp"
+            android:translationZ="3dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/circlebutton"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예상 소요 시간"
+        android:fontFamily="@font/nbold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:textSize="24sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/yellow"/>
+
+
+</LinearLayout>

@@ -33,7 +33,7 @@
                 android:fontFamily="@font/regular"
                 android:text="momo"
                 android:textColor="@color/yellow"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/menubutton"
                 app:layout_constraintStart_toEndOf="@+id/backbutton"
@@ -55,6 +55,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <Button
+        android:id="@+id/makeNewMeeting"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
