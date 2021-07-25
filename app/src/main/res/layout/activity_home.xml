@@ -85,6 +85,7 @@
         android:text="다가오는 모임"/>
     
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/meeting_recyclerview"
         android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_gravity="center">
