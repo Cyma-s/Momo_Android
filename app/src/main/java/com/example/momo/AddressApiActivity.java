@@ -30,7 +30,7 @@ public class AddressApiActivity extends AppCompatActivity {
 
         mWebView.setWebChromeClient(new NewWebChromeChient(this));
 
-        mWebView.loadUrl("https://cd76a63d5190.ngrok.io/pre-testing/html");
+        mWebView.loadUrl("https://2e90be0319e5.ngrok.io/pre-testing/html");
 
 
     }
