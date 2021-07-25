@@ -10,6 +10,7 @@
     <color name="yellow">#FFD91F</color>
     <color name="basic_black">#3C3C3C</color>
     <color name="back_white">#F6F6F6</color>
-
+    <color name="edittext_back">#F1F1F5</color>
+    <color name="grey">#999999</color>
     <color name="splash_background">#FFD91F</color>
 </resources>

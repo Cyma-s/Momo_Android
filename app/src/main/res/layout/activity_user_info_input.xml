@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/back_white"
     tools:context=".UserInfoInputActivity">
 
     <TextView
@@ -14,12 +15,57 @@
         android:textColor="@color/basic_black"
         android:textSize="22sp"
         android:fontFamily="@font/nbold"
-        android:text="닉네임을 정해보세요"/>
+        android:includeFontPadding="false"
+        android:text="닉네임을 정해보세요"
+        android:layout_marginStart="25dp"/>
+
+    <EditText
+        android:id="@+id/nickname_edittext"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_round"
+        android:fontFamily="@font/nbold"
+        android:textColor="@color/grey"
+        android:hint="닉네임을 입력하세요"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:paddingStart="18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        android:fontFamily="@font/nbold"
+        android:includeFontPadding="false"
+        android:text="*20자 이내여야 해요"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/basic_black"
+        android:textSize="22sp"
+        android:fontFamily="@font/nbold"
+        android:includeFontPadding="false"
+        android:text="캐릭터를 골라보세요"
+        android:layout_marginStart="25dp"/>
+
+    <ImageView
+        android:id="@+id/userProfileImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:src="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:text="로그아웃"/>
 
 </LinearLayout>

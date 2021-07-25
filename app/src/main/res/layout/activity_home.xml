@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical"
+    android:backgroundTint="@color/back_white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backbutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@null"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/regular"
+                android:text="momo"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menubutton"
+                app:layout_constraintStart_toEndOf="@+id/backbutton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/menubutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:src="@drawable/menubar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_round"
+        android:drawableStart="@drawable/plusicon"
+        android:drawablePadding="-10dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/nregular"
+        android:paddingLeft="20dp"
+        android:text="새 모임 만들기"
+        android:translationZ="5dp"
+        android:stateListAnimator="@null"
+        android:textSize="12sp" />
+    
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nbold"
+        android:includeFontPadding="false"
+        android:textSize="20sp"
+        android:textColor="@color/basic_black"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
+        android:text="다가오는 모임"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/meeting_recyclerview"
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
