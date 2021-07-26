@@ -30,13 +30,14 @@
 
             <EditText
                 android:id="@+id/nickname_edittext"
-                android:layout_width="360dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_round"
                 android:fontFamily="@font/nbold"
                 android:textColor="@color/grey"
                 android:hint="닉네임을 입력하세요"
                 android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:layout_marginTop="25dp"
                 android:paddingStart="18dp"/>
 

@@ -54,36 +54,61 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <Button
-        android:id="@+id/makeNewMeeting"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/button_round"
-        android:drawableStart="@drawable/plusicon"
-        android:drawablePadding="-10dp"
-        android:elevation="5dp"
-        android:fontFamily="@font/nregular"
-        android:paddingLeft="20dp"
-        android:text="새 모임 만들기"
-        android:translationZ="5dp"
-        android:stateListAnimator="@null"
-        android:textSize="12sp" />
-    
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nbold"
-        android:includeFontPadding="false"
-        android:textSize="20sp"
-        android:textColor="@color/basic_black"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="20dp"
-        android:text="다가오는 모임"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nbold"
+                android:includeFontPadding="false"
+                android:textSize="20sp"
+                android:textColor="@color/basic_black"
+                android:layout_marginStart="25dp"
+                android:text="다가오는 모임"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:textSize="10sp"
+                android:textColor="@color/button_grey"
+                android:layout_marginStart="25dp"
+                android:text="모임 박스를 눌러 모임방에 들어가 보세요!"/>
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/makeNewMeeting"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_round"
+            android:drawableStart="@drawable/plusicon"
+            android:drawablePadding="-10dp"
+            android:elevation="5dp"
+            android:fontFamily="@font/nregular"
+            android:paddingLeft="20dp"
+            android:text="새 모임 만들기"
+            android:translationZ="5dp"
+            android:stateListAnimator="@null"
+            android:layout_marginStart="30dp"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/meeting_recyclerview"
