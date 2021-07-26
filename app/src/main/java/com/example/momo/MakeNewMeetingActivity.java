@@ -13,6 +13,5 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_new_meeting);
 
-        numberPicker = findViewById(R.id.)
     }
 }
