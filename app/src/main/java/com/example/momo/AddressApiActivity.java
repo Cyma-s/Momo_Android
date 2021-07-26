@@ -28,17 +28,17 @@ public class AddressApiActivity extends AppCompatActivity {
         webSettings.setSupportMultipleWindows(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 
-        mWebView.setWebChromeClient(new NewWebChromeChient(this));
+        mWebView.setWebChromeClient(new NewWebChromeClient(this));
 
         mWebView.loadUrl(getString(R.string.url) + "/pre-testing/html");
 
 
     }
 
-    private class NewWebChromeChient extends WebChromeClient {
+    private class NewWebChromeClient extends WebChromeClient {
 
         private Activity mActivity = null;
-        public NewWebChromeChient(Activity activity) {
+        public NewWebChromeClient(Activity activity) {
             this.mActivity = activity;
         }
 
