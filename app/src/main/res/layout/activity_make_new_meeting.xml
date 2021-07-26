@@ -294,6 +294,7 @@
         android:textColor="@color/basic_black"/>
 
     <NumberPicker
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
