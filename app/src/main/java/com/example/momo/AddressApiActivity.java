@@ -2,14 +2,17 @@ package com.example.momo;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,10 +32,7 @@ public class AddressApiActivity extends AppCompatActivity {
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 
         mWebView.setWebChromeClient(new NewWebChromeClient(this));
-
         mWebView.loadUrl(getString(R.string.url) + "/pre-testing/html");
-
-
     }
 
     private class NewWebChromeClient extends WebChromeClient {
@@ -58,7 +58,8 @@ public class AddressApiActivity extends AppCompatActivity {
             dialog.show();
             newWebView.setWebChromeClient(new WebChromeClient() {
                 @Override public void onCloseWindow(WebView window) {
-                    dialog.dismiss();
+                    Intent intent = new Intent(AddressApiActivity.this, BasicAddressSetActivity1.class);
+                    startActivity(intent);
                 }
             });
 

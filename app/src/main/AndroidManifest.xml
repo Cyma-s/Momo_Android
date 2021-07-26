@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".MakeNewMeetingActivity" />
         <activity android:name=".HomeActivity" />
-
+        <activity android:name=".BasicAddressSetActivity1" />
         <activity android:name=".UserInfoInputActivity" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
@@ -39,15 +39,13 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".AddressApiActivity"/>
 
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
-
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme">
+        </activity>
 
-        <activity android:name=".BasicAddressSetActivity1">
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

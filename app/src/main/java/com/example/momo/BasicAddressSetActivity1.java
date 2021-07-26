@@ -6,41 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class BasicAddressSetActivity1 extends AppCompatActivity {
     // 주소 요청코드 상수 requestCode
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
-    private EditText address;
+    private EditText editAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        address = findViewById(R.id.address);
-        address.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_basic_address_set1);
+
+        editAddress = findViewById(R.id.address);
+
+        editAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), AddressApiActivity.class);
+                Intent i = new Intent(BasicAddressSetActivity1.this, AddressApiActivity.class);
                 //화면전환 애니메이션 없앰
                 overridePendingTransition(0, 0);
-                startActivityForResult(i, SEARCH_ADDRESS_ACTIVITY);
+                startActivity(i);
             }
         });
-        setContentView(R.layout.activity_basic_address_set1);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-        switch (requestCode) {
-            case SEARCH_ADDRESS_ACTIVITY:
-                if (resultCode == RESULT_OK) {
-                    String data = intent.getExtras().getString("data");
-                    if (data != null) {
-                        address.setText(data);
-                    }
-                }
-                break;
-        }
     }
 }
