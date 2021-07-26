@@ -69,13 +69,14 @@
     
     <EditText
         android:id="@+id/newMeetingName"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:fontFamily="@font/nmed"
         android:includeFontPadding="false"
         android:textColor="@color/basic_black"
         android:textColorHint="@color/basic_black"
         android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginTop="25dp"
         android:elevation="10dp"
         android:textSize="16sp"
@@ -297,7 +298,8 @@
         android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:theme="@style/NumberPicker"
+        android:layout_gravity="center"
         />
 
 </LinearLayout>
