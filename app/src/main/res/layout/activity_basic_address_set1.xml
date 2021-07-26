@@ -8,6 +8,7 @@
     tools:context=".BasicAddressSetActivity1">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -30,11 +31,11 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@drawable/address_search"
-            android:enabled="false"
             android:focusable="false"
             android:fontFamily="@font/nregular"
             android:includeFontPadding="false"
