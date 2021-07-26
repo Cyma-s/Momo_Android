@@ -62,10 +62,10 @@
         android:text="모임 이름"
         android:fontFamily="@font/nbold"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="35dp"
-        android:textSize="24sp"
+        android:layout_marginTop="25dp"
+        android:textSize="22sp"
         android:includeFontPadding="false"
-        android:textColor="@color/yellow"/>
+        android:textColor="@color/basic_black"/>
     
     <EditText
         android:id="@+id/newMeetingName"
@@ -100,15 +100,15 @@
         android:text="인원수"
         android:fontFamily="@font/nbold"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="35dp"
-        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
         android:includeFontPadding="false"
-        android:textColor="@color/yellow"/>
+        android:textColor="@color/basic_black"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_gravity="center">
 
@@ -183,13 +183,120 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="모임 종류 선택"
+        android:fontFamily="@font/nbold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/basic_black"/>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/meeting_kind_button_round"
+                android:drawableStart="@drawable/small_food_icon"
+                android:elevation="5dp"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:text="맛집/카페"
+                android:textSize="12sp"
+                android:translationZ="5dp" />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:background="@drawable/meeting_kind_button_round"
+                android:drawableStart="@drawable/small_study_icon"
+                android:elevation="5dp"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:text="스터디"
+                android:textSize="12sp"
+                android:translationZ="5dp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/meeting_kind_button_round"
+                android:drawableStart="@drawable/small_health_icon"
+                android:elevation="5dp"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:text="운동"
+                android:textSize="12sp"
+                android:translationZ="5dp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/meeting_kind_button_round"
+                android:drawableStart="@drawable/small_travel_icon"
+                android:elevation="5dp"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:text="여행"
+                android:textSize="12sp"
+                android:translationZ="5dp" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/meeting_kind_button_round"
+                android:drawableStart="@drawable/small_other_icon"
+                android:elevation="5dp"
+                android:fontFamily="@font/nregular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:text="직접 추가"
+                android:textSize="12sp"
+                android:translationZ="5dp" />
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="예상 소요 시간"
         android:fontFamily="@font/nbold"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:textSize="24sp"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
         android:includeFontPadding="false"
-        android:textColor="@color/yellow"/>
+        android:textColor="@color/basic_black"/>
 
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
 
 </LinearLayout>
