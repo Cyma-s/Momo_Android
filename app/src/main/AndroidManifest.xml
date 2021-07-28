@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Momo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ReccomendOrNot"></activity>
+        <activity android:name=".RecommendOrNot"></activity>
         <activity android:name=".MakeNewMeetingActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".BasicAddressSetActivity1" />

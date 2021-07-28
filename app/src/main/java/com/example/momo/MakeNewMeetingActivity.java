@@ -1,12 +1,9 @@
 package com.example.momo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +39,7 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() { // 다음 버튼 클릭 시
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MakeNewMeetingActivity.this, ReccomendOrNot.class);
+                Intent intent = new Intent(MakeNewMeetingActivity.this, RecommendOrNot.class);
                 startActivity(intent);
             }
         });
