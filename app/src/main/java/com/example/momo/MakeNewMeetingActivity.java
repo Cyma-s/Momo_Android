@@ -39,7 +39,7 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
         health = findViewById(R.id.healthicon);
         other = findViewById(R.id.othericon);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() { // 다음 버튼 클릭 시
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MakeNewMeetingActivity.this, ReccomendOrNot.class);
@@ -52,6 +52,7 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
     }
 
     void setNumberPicker() {
+        // numberPicker 초기화
         for(int i = 1; i<24; i++) {
             meetingTime.add(i + "시간");
         }
