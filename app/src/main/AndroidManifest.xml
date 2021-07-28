@@ -3,7 +3,7 @@
     package="com.example.momo">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".GlobalApplication"
@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Momo"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ReccomendOrNot"></activity>
         <activity android:name=".MakeNewMeetingActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".BasicAddressSetActivity1" />
@@ -37,14 +38,12 @@
             android:value="@string/kakao_app_key" />
 
         <activity android:name=".LoginActivity" />
-        <activity android:name=".AddressApiActivity"/>
-
+        <activity android:name=".AddressApiActivity" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-        </activity>
-
-        <activity android:name=".MainActivity"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
