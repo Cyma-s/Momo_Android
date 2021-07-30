@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Momo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RecommendDate"></activity>
+        <activity android:name=".UnableTimeInput"></activity>
+        <activity android:name=".RecommendDate" />
         <activity android:name=".RecommendOrNot" />
         <activity android:name=".MakeNewMeetingActivity" />
         <activity android:name=".HomeActivity" />

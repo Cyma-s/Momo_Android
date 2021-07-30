@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RecommendDate">
+    tools:context=".UnableTimeInput">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -56,75 +56,64 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/basic_black"
-        android:text="어느 기간 중에 일정을 추천할까요?"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="25dp"
-        android:includeFontPadding="false"
-        android:fontFamily="@font/nbold"/>
-
-    <com.applikeysolutions.cosmocalendar.view.CalendarView
-        android:id="@+id/makeMeetingCalender"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:currentDayTextColor="@color/yellow"
-        app:weekendDayTextColor="@color/red"
-        app:selectedDayBackgroundColor="#FAD003"
-        app:selectedDayTextColor="@color/white"
-        />
+        android:layout_marginTop="60dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/basic_black"
-        android:text="추천 받고 싶은 시간대는?"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="25dp"
-        android:includeFontPadding="false"
-        android:fontFamily="@font/nbold"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp">
-
-        <NumberPicker
-            android:id="@+id/startDate"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:theme="@style/NumberPicker"
+            android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            />
+            android:fontFamily="@font/nbold"
+            android:includeFontPadding="false"
+            android:text="가능하지 않은 시간대를 입력해주세요"
+            android:textColor="@color/basic_black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nbold"
-            android:layout_gravity="center"
-            android:text="~"/>
+            android:fontFamily="@font/nregular"
+            android:includeFontPadding="false"
+            android:text="입력한 시간대는 추천 대상에서 제외됩니다"
+            android:textColor="@color/basic_black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <NumberPicker
-            android:id="@+id/endTime"
+        <Button
+            android:id="@+id/getPrevTime"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:theme="@style/NumberPicker"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            />
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/much_round"
+            android:fontFamily="@font/nregular"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="기존 시간표 가져오기"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:fontFamily="@font/nbold"
+        android:textColor="@color/basic_black"
+        android:text=""/>
 
     <Button
-        android:id="@+id/newMeetingRecNext"
+        android:id="@+id/unabletimenext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -132,7 +121,7 @@
         android:textColor="@color/basic_black"
         android:background="@drawable/button_round"
         android:layout_gravity="end"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="380dp"
         android:layout_marginEnd="25dp"
         android:fontFamily="@font/nregular"/>
 
