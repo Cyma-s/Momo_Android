@@ -28,6 +28,7 @@ public class UserInfoInputActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_info_input);
 
         SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+        SharedPreferences isComplete;
 
         TextView userName = findViewById(R.id.nickname_edittext);
         Button logoutButton = findViewById(R.id.logout_btn);
@@ -44,6 +45,7 @@ public class UserInfoInputActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(UserInfoInputActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
