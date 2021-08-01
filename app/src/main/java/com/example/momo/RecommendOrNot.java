@@ -11,6 +11,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class RecommendOrNot extends AppCompatActivity {
+    // 추천 여부를 묻는 Actiivity -> 삭제 요망
+
     boolean isNext = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

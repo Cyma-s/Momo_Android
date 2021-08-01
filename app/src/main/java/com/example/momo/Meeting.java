@@ -1,6 +1,7 @@
 package com.example.momo;
 
 public class Meeting {
+    // 모임 리사이클러뷰에 들어갈 아이템 클래스 구성
     String meetingDay, meetingName;
     int meetingType;
     boolean alert;

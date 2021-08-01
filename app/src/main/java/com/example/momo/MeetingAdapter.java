@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MeetingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    // 모임 리사이클러뷰 어댑터
     private ArrayList<Meeting> meetings;
 
     public MeetingAdapter(ArrayList<Meeting> meetings) {

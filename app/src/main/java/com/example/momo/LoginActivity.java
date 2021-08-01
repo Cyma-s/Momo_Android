@@ -66,13 +66,16 @@ public class LoginActivity extends AppCompatActivity {
                 return null;
             }
         };
+
         sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
         kakaoAuth = findViewById(R.id.kakao_auth_button);
         googleAuth = findViewById(R.id.google_auth_button);
+
         kakaoAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)) {
+                    // 카카오톡이 있을 경우?
                     UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
                 } else {
                     UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
@@ -83,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public String BitmapToString(Bitmap bitmap){
+        // bitmap을 바이트배열 string으로 변경하는 메소드
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte [] b = baos.toByteArray();
@@ -91,33 +95,45 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void updateKakaoLoginUi() {
+        // 카카오 UI 가져오는 메소드 (로그인 핵심 기능)
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
                 if (user != null) {
+                    // 유저 정보가 정상 전달 되었을 경우
                     Log.i(TAG, "id " + user.getId());
                     Log.i(TAG, "invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
                     Log.i(TAG, "userimage " + user.getKakaoAccount().getProfile().getProfileImageUrl());
 
                     try {
+                        // 카카오톡 프로필 사진 불러옴
                         mBitmap = new LoadImage().execute(user.getKakaoAccount().getProfile().getProfileImageUrl()).get();
                     } catch (ExecutionException | InterruptedException e) {
+                        // 사진 불러오기 오류
                         e.printStackTrace();
                     }
-                    userImageString = BitmapToString(mBitmap);
-                    editor = sharedPreferences.edit();
-                    editor.putLong("userId", user.getId());
-                    editor.putString("userNickName", user.getKakaoAccount().getProfile().getNickname());
-                    editor.putString("userImage", userImageString);
-                    Log.i("userimage", userImageString);
-                    editor.apply();
 
-                    Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    //intent.putExtra("userImage", userImageString);
-                    startActivity(intent);
-                    finish();
+                    setSharedPreferences(user); // 유저 정보 sharedPreferences에 저장
+
+                    SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
+                    SharedPreferences.Editor loginEditor = autoLogin.edit();
+                    Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                    // 자동 로그인 관련
+                    if(isAuto) {
+                        // 이전 로그인 이력이 있을 경우 -> Home으로 이동
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // 이전 로그인 이력이 없는 경우 -> 닉네임 입력 창으로 이동
+                        Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
                 if (throwable != null) {
+                    // 로그인 시 오류 났을 때
+                    // 키해시가 등록 안 되어 있으면 오류남
                     Log.w(TAG, "invoke: " + throwable.getLocalizedMessage());
                 }
                 return null;
@@ -125,12 +141,24 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private class LoadImage extends AsyncTask<String, String, Bitmap> {
+    private void setSharedPreferences(User user){
+        // 유저 이미지, 아이디, 닉네임 sharedpreferences에 저장
+        userImageString = BitmapToString(mBitmap);
+        editor = sharedPreferences.edit();
+        editor.putLong("userId", user.getId());
+        editor.putString("userNickName", user.getKakaoAccount().getProfile().getNickname());
+        editor.putString("userImage", userImageString);
+        Log.i("userimage", userImageString);
+        editor.apply();
+    }
 
+    private class LoadImage extends AsyncTask<String, String, Bitmap> {
+        // 이미지 로딩하는 메소드
         ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
+            // 아직 로딩중일 때
             super.onPreExecute();
             progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("이미지 로딩중입니다...");
@@ -141,14 +169,15 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-
             if(bitmap != null) {
+                // bitmap이 정상 전달되었을 때 bitmap sharedPreferences에 저장
                 userImageString = BitmapToString(bitmap);
                 Log.i("userImageString", userImageString);
                 editor.putString("userImage", userImageString);
                 editor.apply();
                 progressDialog.dismiss();
             } else {
+                // 이미지 전달 안 됐을 경우
                 progressDialog.dismiss();
                 Toast.makeText(LoginActivity.this, "이미지 로딩 중 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
             }
@@ -156,6 +185,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
+            // 서버 url에서 bitmap 가져옴 (백그라운드 실행)
             try {
                 mBitmap = BitmapFactory
                         .decodeStream((InputStream) new URL(strings[0]).getContent());

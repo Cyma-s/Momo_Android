@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MeetingInfoActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/yellow_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backbutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="25dp"
+                android:background="@null"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.213" />
+
+            <ImageButton
+                android:id="@+id/menubutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="25dp"
+                android:background="@null"
+                android:src="@drawable/menubar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.213" />
+
+            <ImageView
+                android:id="@+id/meetingImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/studyicon"
+                app:layout_constraintEnd_toStartOf="@+id/meetingInfoName"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backbutton" />
+
+            <TextView
+                android:id="@+id/meetingInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="228dp"
+                android:fontFamily="@font/nbold"
+                android:includeFontPadding="false"
+                android:text="모임 이름"
+                android:textColor="@color/basic_black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.543" />
+
+            <TextView
+                android:id="@+id/meetingInfoDDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/nbold"
+                android:includeFontPadding="false"
+                android:text="D-DAY"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingImage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/basic_black"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="25dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/nbold"
+            android:textSize="16sp"
+            android:text="일시"/>
+
+        <TextView
+            android:id="@+id/recommendDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/yellow"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="25dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/nbold"
+            android:textSize="16sp"
+            android:text="일시 추천 결과 보기"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/meetingTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nbold"
+        android:includeFontPadding="false"
+        android:textColor="@color/basic_black"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="25dp"
+        android:textSize="16sp"
+        android:text="인원"/>
+
+    <Button
+        android:id="@+id/personaddbutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="+"
+        android:fontFamily="@font/nbold"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        android:includeFontPadding="false"
+        />
+
+    <TextView
+        android:id="@+id/addedpeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nbold"
+        android:includeFontPadding="false"
+        android:textColor="@color/basic_black"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="25dp"
+        android:textSize="16sp"
+        android:text="추가된 인원"/>
+
+</LinearLayout>
