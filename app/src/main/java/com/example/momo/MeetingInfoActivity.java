@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UnableTimeInput extends AppCompatActivity {
+public class MeetingInfoActivity extends AppCompatActivity {
+    // 모임 전체 정보창 Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unable_time_input);
+        setContentView(R.layout.activity_meeting_info);
     }
 }

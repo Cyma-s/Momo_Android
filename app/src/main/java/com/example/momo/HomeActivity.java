@@ -29,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.meeting_recyclerview);
 
         makeNewMeeting.setOnClickListener(new View.OnClickListener() {
+            // 새로운 모임 만들기 버튼으로 모임 만드는 activity로 이동
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, MakeNewMeetingActivity.class);
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void getMeetings() {
+        // 현재 유저의 모임들 서버에서 가져오는 메소드
         RequestQueue queue = Volley.newRequestQueue(HomeActivity.this);
         String url = getString(R.string.url);
     }

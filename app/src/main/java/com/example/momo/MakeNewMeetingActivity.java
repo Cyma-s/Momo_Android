@@ -36,7 +36,7 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
         health = findViewById(R.id.healthicon);
         other = findViewById(R.id.othericon);
 
-        nextButton.setOnClickListener(new View.OnClickListener() { // 다음 버튼 클릭 시
+        nextButton.setOnClickListener(new View.OnClickListener() { // 다음 버튼 클릭 시 추천 여부 activity로 이동
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MakeNewMeetingActivity.this, RecommendOrNot.class);
