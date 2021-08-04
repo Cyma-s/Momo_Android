@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical"
+    android:backgroundTint="@color/back_white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backbutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@null"
+                android:src="@drawable/backbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/regular"
+                android:text="momo"
+                android:textColor="@color/yellow"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menubutton"
+                app:layout_constraintStart_toEndOf="@+id/backbutton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/menubutton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:src="@drawable/menubar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="라이센스"
+            android:textSize="24dp"
+            android:fontFamily="@font/nbold"
+            android:textColor="@color/black"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="맛집·카페 이모티콘"
+                android:textSize="14dp"
+                android:fontFamily="@font/nbold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="<div>아이콘 제작자 <a href=&quot;https://www.freepik.com&quot; title=&quot;Freepik&quot;>
+            Freepik</a> from <a href=&quot;https://www.flaticon.com/kr/&quot; title=&quot;Flaticon&quot;> www.flaticon.com</a></div>&quot;"
+                android:textSize="10dp"
+                android:fontFamily="@font/nblack" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="스터디"
+                android:textSize="14dp"
+                android:fontFamily="@font/nbold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="<div>아이콘 제작자 <a href=&quot;https://www.freepik.com&quot; title=&quot;Freepik&quot;>
+            Freepik</a> from <a href=&quot;https://www.flaticon.com/kr/&quot; title=&quot;Flaticon&quot;> www.flaticon.com</a></div>&quot;"
+                android:textSize="10dp"
+                android:fontFamily="@font/nblack" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="여행"
+                android:textSize="14dp"
+                android:fontFamily="@font/nbold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="<div>아이콘 제작자 <a href=&quot;https://www.freepik.com&quot; title=&quot;Freepik&quot;>
+            Freepik</a> from <a href=&quot;https://www.flaticon.com/kr/&quot; title=&quot;Flaticon&quot; www.flaticon.com</a></div>&quot;"
+                android:textSize="10dp"
+                android:fontFamily="@font/nblack" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="기타 모임 이모티콘"
+                android:textSize="14dp"
+                android:fontFamily="@font/nbold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="<div>아이콘 제작자 <a href=&quot;https://www.freepik.com&quot; title=&quot;Freepik&quot;>
+            Freepik</a> from <a href=&quot;https://www.flaticon.com/kr/&quot; title=&quot;Flaticon&quot;> www.flaticon.com</a></div>&quot;"
+                android:textSize="10dp"
+                android:fontFamily="@font/nblack" />
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>
