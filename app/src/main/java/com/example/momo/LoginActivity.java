@@ -163,7 +163,6 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("이미지 로딩중입니다...");
             progressDialog.show();
-
         }
 
         @Override

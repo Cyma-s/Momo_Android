@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_make_new_meeting.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_meeting_info.xml" value="0.264" />
-        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_recommend_date.xml" value="0.4" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_message_input.xml" value="0.72" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_recommend_date.xml" value="0.176" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_unable_time_input.xml" value="0.1328125" />
       </map>
     </option>
