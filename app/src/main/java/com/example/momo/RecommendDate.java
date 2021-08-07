@@ -3,7 +3,9 @@ package com.example.momo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,12 @@ import com.applikeysolutions.cosmocalendar.selection.OnDaySelectedListener;
 import com.applikeysolutions.cosmocalendar.utils.SelectionType;
 import com.applikeysolutions.cosmocalendar.view.CalendarView;
 
+import org.json.JSONArray;
+
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -79,6 +85,25 @@ public class RecommendDate extends AppCompatActivity{
             result += year + "년 " + month + "월 " + day + "일 " + week + "요일 \n";
         }
         Toast.makeText(RecommendDate.this, result, Toast.LENGTH_LONG).show();
+        Calendar[] temp = (Calendar[]) days.toArray();
+        ArrayList<Calendar> newDays = new ArrayList<Calendar>(Arrays.asList(temp));
+        setStringArrayPref(newDays);
+    }
+
+    private void setStringArrayPref(ArrayList<Calendar> days) {
+        // ArrayList를 JSONArray로 바꿔서 SharedPreferences에 저장하기
+        SharedPreferences prefs = getSharedPreferences("meetingDays", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        JSONArray arr = new JSONArray();
+        for(int i = 0; i<days.size(); i++) {
+            arr.put(days.get(i));
+        }
+        if(!days.isEmpty()) {
+            editor.putString("meetingDays", arr.toString());
+        } else {
+            editor.putString("meetingDays", null);
+        }
+        editor.apply();
     }
 
     private void setNumberPicker() {

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Momo</string>
     <string name="kakao_app_key">82f5cb2e90721109d9a01b2ebcbe8367</string>
+    <string name="kakao_scheme">kakao82f5cb2e90721109d9a01b2ebcbe8367</string>
     <string name="url">https://f207ce912c5a.ngrok.io</string>
 </resources>
