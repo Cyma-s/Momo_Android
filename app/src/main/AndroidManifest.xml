@@ -15,10 +15,14 @@
         android:theme="@style/Theme.Momo"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MeetingTimeAnswer"
+            android:exported="true" />
+        <activity
             android:name=".MessageInput"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -27,8 +31,7 @@
                     android:scheme="@string/kakao_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MeetingInfoActivity">
-        </activity>
+        <activity android:name=".MeetingInfoActivity"></activity>
         <activity android:name=".AbleTimeInput" />
         <activity android:name=".RecommendDate" />
         <activity android:name=".RecommendOrNot" />
@@ -67,7 +70,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 
 </manifest>
