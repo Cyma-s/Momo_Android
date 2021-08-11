@@ -160,9 +160,9 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPreExecute() {
             // 아직 로딩중일 때
             super.onPreExecute();
-            progressDialog = new ProgressDialog(LoginActivity.this);
+            /*progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("이미지 로딩중입니다...");
-            progressDialog.show();
+            progressDialog.show();*/
         }
 
         @Override
@@ -177,8 +177,8 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             } else {
                 // 이미지 전달 안 됐을 경우
-                progressDialog.dismiss();
-                Toast.makeText(LoginActivity.this, "이미지 로딩 중 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
+                /*progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, "이미지 로딩 중 오류가 발생했습니다", Toast.LENGTH_SHORT).show();*/
             }
         }
 
