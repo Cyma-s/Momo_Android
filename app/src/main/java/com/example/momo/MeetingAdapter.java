@@ -69,8 +69,8 @@ public class MeetingAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             meetingDay.setText(meeting.getMeetingDay());
         }
 
-        private void setMeetingImage(int i, ImageView imageView) {
-            if (i == 1) {
+        private void setMeetingImage(String type, ImageView imageView) {
+            if (type.equals("study")) {
                 imageView.setImageResource(R.drawable.studyicon);
             }
         }

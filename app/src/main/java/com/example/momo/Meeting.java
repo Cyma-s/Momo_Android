@@ -3,11 +3,11 @@ package com.example.momo;
 public class Meeting {
     // 모임 리사이클러뷰에 들어갈 아이템 클래스 구성
     String meetingDay, meetingName;
-    int meetingType;
+    String meetingType;
     boolean alert;
     int dDay;
 
-    public Meeting(String meetingDay, String meetingName, int meetingType, boolean alert, int dDay) {
+    public Meeting(String meetingDay, String meetingName, String meetingType, boolean alert, int dDay) {
         this.meetingDay = meetingDay;
         this.meetingName = meetingName;
         this.meetingType = meetingType;
@@ -31,11 +31,11 @@ public class Meeting {
         this.meetingName = meetingName;
     }
 
-    public int getMeetingType() {
+    public String getMeetingType() {
         return meetingType;
     }
 
-    public void setMeetingType(int meetingType) {
+    public void setMeetingType(String meetingType) {
         this.meetingType = meetingType;
     }
 

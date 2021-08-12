@@ -25,16 +25,9 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
 
 
         Button nextButton;
-        Button study, food, travel, health, other;
-        RadioGroup radioGroup;
-        Context context = this;
+
 
         nextButton = findViewById(R.id.newMeetingNext);
-        study = findViewById(R.id.studyicon);
-        food = findViewById(R.id.foodicon);
-        travel = findViewById(R.id.travelicon);
-        health = findViewById(R.id.healthicon);
-        other = findViewById(R.id.othericon);
 
         nextButton.setOnClickListener(new View.OnClickListener() { // 다음 버튼 클릭 시 추천 여부 activity로 이동
             @Override
@@ -45,7 +38,6 @@ public class MakeNewMeetingActivity extends AppCompatActivity {
         });
 
         setNumberPicker();
-
     }
 
     void setNumberPicker() {

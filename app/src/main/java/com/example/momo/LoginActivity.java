@@ -11,15 +11,25 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 import com.kakao.sdk.user.model.User;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     private String userImageString = "";
     private Bitmap mBitmap;
     SharedPreferences.Editor editor;
+    private Boolean isTrue = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.w(TAG, "invoke: " + throwable.getLocalizedMessage());
                 }
                 LoginActivity.this.updateKakaoLoginUi();
+
                 return null;
             }
         };
@@ -93,6 +105,20 @@ public class LoginActivity extends AppCompatActivity {
         return Base64.getEncoder().encodeToString(b);
     }
 
+    public void confirmSignuped(User user) {
+        if(isTrue) {
+            // 이전 로그인 이력이 있을 경우 -> Home으로 이동
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+    }
+
 
     public void updateKakaoLoginUi() {
         // 카카오 UI 가져오는 메소드 (로그인 핵심 기능)
@@ -118,18 +144,9 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
                     SharedPreferences.Editor loginEditor = autoLogin.edit();
                     Boolean isAuto = autoLogin.getBoolean("autologin", false);
-                    // 자동 로그인 관련
-                    if(isAuto) {
-                        // 이전 로그인 이력이 있을 경우 -> Home으로 이동
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        // 이전 로그인 이력이 없는 경우 -> 닉네임 입력 창으로 이동
-                        Intent intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+
+
+                    confirmSignUp(user);
                 }
                 if (throwable != null) {
                     // 로그인 시 오류 났을 때
@@ -139,6 +156,61 @@ public class LoginActivity extends AppCompatActivity {
                 return null;
             }
         });
+    }
+
+    public void confirmSignUp(User user) {
+        // 회원 가입 되어 있는지 여부 검색
+        String url = getString(R.string.url) + "/users/overlap/" + user.getId();
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("true")) {
+                        isTrue = true;
+                        Log.i("confirm", "true");
+                    } else {
+                        isTrue = false;
+                        Log.i("confirm", "false");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(LoginActivity.this, "서버 통신 시 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(jsonObjectRequest);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent;
+                SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
+                Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                if(isAuto) {
+                    intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                if (!isTrue) {
+                    intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        }, 0);
+
     }
 
     private void setSharedPreferences(User user){
@@ -160,9 +232,9 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPreExecute() {
             // 아직 로딩중일 때
             super.onPreExecute();
-            progressDialog = new ProgressDialog(LoginActivity.this);
+            /*progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("이미지 로딩중입니다...");
-            progressDialog.show();
+            progressDialog.show();*/
         }
 
         @Override
@@ -174,11 +246,10 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i("userImageString", userImageString);
                 editor.putString("userImage", userImageString);
                 editor.apply();
-                progressDialog.dismiss();
             } else {
                 // 이미지 전달 안 됐을 경우
-                progressDialog.dismiss();
-                Toast.makeText(LoginActivity.this, "이미지 로딩 중 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
+                /*progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, "이미지 로딩 중 오류가 발생했습니다", Toast.LENGTH_SHORT).show();*/
             }
         }
 
