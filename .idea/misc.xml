@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/able_time_item.xml" value="0.72" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_able_time_input.xml" value="0.18007246376811595" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_login.xml" value="0.2179824561403509" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_make_new_meeting.xml" value="0.264" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_meeting_info.xml" value="0.264" />
@@ -11,6 +15,8 @@
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_recommend_date.xml" value="0.176" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_recommend_or_not.xml" value="0.134375" />
         <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_unable_time_input.xml" value="0.1328125" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/activity_user_info_input.xml" value="0.2179824561403509" />
+        <entry key="..\:/Users/master/AndroidStudioProjects/Momo/app/src/main/res/layout/meeting_recyclerview_item.xml" value="0.2179824561403509" />
       </map>
     </option>
   </component>

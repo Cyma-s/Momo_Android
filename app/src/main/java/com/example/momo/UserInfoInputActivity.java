@@ -13,8 +13,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.kakao.sdk.user.UserApiClient;
+
+import org.json.JSONObject;
 
 import java.util.Base64;
 
@@ -44,14 +53,16 @@ public class UserInfoInputActivity extends AppCompatActivity {
         String userImageString = sharedPreferences.getString("userImage", "");
         Log.i("userInfo", userImageString);
         Bitmap userImage = StringToBitmap(userImageString);
-        String id = sharedPreferences.getString("userNickName", "");
-        userName.setText(id);
+        String userNickName = sharedPreferences.getString("userNickName", "");
+        Long userId = sharedPreferences.getLong("userId", 0);
+        userName.setText(userNickName);
         imageView.setImageBitmap(userImage);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             // Home으로 넘어가는 다음 버튼
             @Override
             public void onClick(View v) {
+                sendToServer(userId.toString(), userName.getText().toString());
                 isComplete.getBoolean("autologin", false);
                 editor.putBoolean("autologin", true);
                 editor.apply();
@@ -61,22 +72,32 @@ public class UserInfoInputActivity extends AppCompatActivity {
             }
         });
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            // 로그아웃 버튼
+
+    }
+
+    public void sendToServer(String id, String userName) {
+        String url = getString(R.string.url) + "/users/signup";
+        JSONObject userInfo = new JSONObject();
+        try {
+            userInfo.put("id", id);
+            userInfo.put("name", userName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        RequestQueue requestQueue = Volley.newRequestQueue(UserInfoInputActivity.this);
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, userInfo, new Response.Listener<JSONObject>() {
             @Override
-            public void onClick(View v) {
-                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(Throwable throwable) {
-                        ((LoginActivity)LoginActivity.mContext).updateKakaoLoginUi();
-                        return null;
-                    }
-                });
-                Intent backIntent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(backIntent);
-                finish();
+            public void onResponse(JSONObject response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(UserInfoInputActivity.this, "서버 전송 시 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
             }
         });
+
+        requestQueue.add(jsonObjectRequest);
     }
 
     public Bitmap StringToBitmap(String imgString){
