@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.OrientationHelper;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
 import android.widget.Toast;
@@ -67,6 +68,40 @@ public class MeetingTimeAnswer extends AppCompatActivity {
         Calendar[] temp = (Calendar[]) days.toArray(new Calendar[0]);
         ArrayList<Calendar> newDays = new ArrayList<Calendar>(Arrays.asList(temp));
         //setStringArrayPref(newDays);
+    }
+
+    // TODO: 서버 통신해서 현재 모임의 서버 최적 시간 가져오는 메소드 필요
+
+    public int[][] findAbleTime(int[][] A, int[][] B) {
+        // MeetingInfoActivity가 아니라 답변창에서 해야 하는 부분이었다.
+        // 해당 일마다 Time 을 검사한다.
+        // 지금 현재 최적 시간 배열만 넣어두면 된다.
+        // 즉 최적 시간 배열과 비교하는 것이다.
+        // 최적 시간 배열에 포함되어 있지 않으면 추가한다.
+        // 최적 시간 배열에 존재하면 확인한다.
+        // [j][0] -> startTime, [j][1] -> endTime
+        //
+        ArrayList<int[]> ans = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (i < A.length && j < B.length) {
+            // Let's check if A[i] intersects B[j].
+            // lo - the startpoint of the intersection
+            // hi - the endpoint of the intersection
+            int lo = Math.max(A[i][0], B[j][0]);
+            int hi = Math.min(A[i][1], B[j][1]);
+            if (lo <= hi)
+                ans.add(new int[]{lo, hi});
+
+            // Remove the interval with the smallest endpoint
+            if (A[i][1] < B[j][1])
+                i++;
+            else
+                j++;
+        }
+        Log.i("able", Arrays.deepToString(ans.toArray(new int[ans.size()][])));
+
+        return ans.toArray(new int[ans.size()][]);
     }
 
     private void setNumberPicker() {
