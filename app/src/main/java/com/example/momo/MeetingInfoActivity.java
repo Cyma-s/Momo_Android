@@ -16,7 +16,10 @@ import com.kakao.network.ErrorResult;
 import com.kakao.network.callback.ResponseCallback;
 import com.kakao.util.helper.log.Logger;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MeetingInfoActivity extends AppCompatActivity {
@@ -29,6 +32,7 @@ public class MeetingInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meeting_info);
 
         Button addPeople = findViewById(R.id.personaddbutton);
+
 
         addPeople.setOnClickListener(new View.OnClickListener() {
             // 친구 초대하는 버튼
