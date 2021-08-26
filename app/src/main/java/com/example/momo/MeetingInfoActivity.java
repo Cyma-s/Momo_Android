@@ -38,14 +38,15 @@ public class MeetingInfoActivity extends AppCompatActivity {
             // 친구 초대하는 버튼
             @Override
             public void onClick(View view) {
-                sendKakaoTemplate();
+                String meetingId = "adsf";
+                sendKakaoTemplate(meetingId);
             }
         });
     }
 
-    public void sendKakaoTemplate(){
+    public void sendKakaoTemplate(String meetingId){
         String content_text = "모모에서 모임에 참여해보세요!";
-        String meetingId="asdf";
+        //String meetingId="asdf";  // TODO: meetingId 받아오는 걸로 바뀌어야 함
         String parameter = "message="+meetingId;
         TextTemplate params = TextTemplate.newBuilder(
                 content_text,
@@ -53,9 +54,8 @@ public class MeetingInfoActivity extends AppCompatActivity {
                 .setWebUrl("https://developers.kakao.com")
                 .setMobileWebUrl("https://developes.kakao.com")
                 .build())
-
                 .addButton(new ButtonObject("모임에 참여하기", LinkObject.newBuilder()
-                        .setAndroidExecutionParams(parameter)
+                        .setAndroidExecutionParams(parameter)  // 안드로이드로 보내는 값
                         .build()))
                 .build();
         Map<String, String> serverCallbackArgs = new HashMap<>();
