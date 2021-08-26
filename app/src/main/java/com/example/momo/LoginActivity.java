@@ -55,6 +55,8 @@ public class LoginActivity extends AppCompatActivity {
     private Bitmap mBitmap;
     SharedPreferences.Editor editor;
     private Boolean isTrue = false;
+    private Boolean nextIntent = false;
+    private String meetingId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mContext = this;
+
+        Intent intent = getIntent();
+        nextIntent = intent.getBooleanExtra("isMessage", false);
+        meetingId = intent.getStringExtra("meetingId");
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
@@ -106,6 +112,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void confirmSignuped(User user) {
+        if(nextIntent) {
+            Intent intent = new Intent(LoginActivity.this, MessageInput.class);
+            intent.putExtra("meetingId", meetingId);
+            startActivity(intent);
+            finish();
+        }
         if(isTrue) {
             // 이전 로그인 이력이 있을 경우 -> Home으로 이동
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
