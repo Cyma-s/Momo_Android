@@ -214,7 +214,6 @@ public class LoginActivity extends AppCompatActivity {
                     //Boolean isAuto = autoLogin.getBoolean("autologin", false);
                     Intent inputintent = new Intent(LoginActivity.this, MessageInput.class);
                     inputintent.putExtra("meetingId", meetingId);
-                    startActivity(inputintent);
                     finish();
                 }
                 else {

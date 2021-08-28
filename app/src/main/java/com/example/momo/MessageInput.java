@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.awt.font.TextAttribute;
 
@@ -26,6 +27,8 @@ public class MessageInput extends AppCompatActivity {
         TextView datatext, testtext;
         Button joinButton = findViewById(R.id.answerInfo_next);
 
+
+
         Intent intent = getIntent();
 
         if(intent.hasExtra("meetingId")) {
@@ -40,6 +43,8 @@ public class MessageInput extends AppCompatActivity {
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+                Long userId = sharedPreferences.getLong("userId", 0);
                 Intent nextIntent = new Intent(MessageInput.this, MeetingTimeAnswer.class);
                 nextIntent.putExtra("meetingId", meetingId);
                 startActivity(nextIntent);
@@ -54,7 +59,6 @@ public class MessageInput extends AppCompatActivity {
             loginIntent.putExtra("isMessage", true);
             loginIntent.putExtra("meetingId", meetingId);
             startActivity(loginIntent);
-            finish();
         }
     }
 }
