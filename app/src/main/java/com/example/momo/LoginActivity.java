@@ -207,27 +207,27 @@ public class LoginActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent;
+                Intent nextintent;
                 SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
-                Boolean isAuto = autoLogin.getBoolean("autologin", false);
-                if(nextIntent) {
+                boolean isAuto = autoLogin.getBoolean("autologin", false);
+                if(intent.hasExtra("isMessage")) {
                     Intent inputintent = new Intent(LoginActivity.this, MessageInput.class);
                     inputintent.putExtra("meetingId", meetingId);
                     startActivity(inputintent);
                     finish();
                 }
                 if(isAuto) {
-                    intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    startActivity(intent);
+                    nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                    startActivity(nextintent);
                     finish();
                 }
                 if (!isTrue) {
-                    intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
+                    nextintent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(nextintent);
                     finish();
                 } else {
-                    intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    startActivity(intent);
+                    nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                    startActivity(nextintent);
                     finish();
                 }
             }
