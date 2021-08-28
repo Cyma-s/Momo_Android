@@ -31,7 +31,7 @@
                     android:scheme="@string/kakao_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MeetingInfoActivity"></activity>
+        <activity android:name=".MeetingInfoActivity" />
         <activity android:name=".AbleTimeInput" />
         <activity android:name=".RecommendDate" />
         <activity android:name=".RecommendOrNot" />

@@ -28,17 +28,14 @@ public class MessageInput extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String getId = intent.getStringExtra("meetingId");
-
-        if(getId != null) {
-            meetingId = getId;
+        if(intent.hasExtra("meetingId")) {
+            meetingId = intent.getStringExtra("meetingId");
             Log.d("MessageTest", "this is id after login " + meetingId);
         }
         else if (intent.getAction().equals(Intent.ACTION_VIEW) && isAuto) {
             meetingId = intent.getData().getQueryParameter("message");
             Log.d("TEST", "this meeting id is " + meetingId);
         }
-
 
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override

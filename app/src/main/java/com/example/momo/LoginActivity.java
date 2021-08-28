@@ -155,7 +155,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
                     SharedPreferences.Editor loginEditor = autoLogin.edit();
-                    Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                    loginEditor.putBoolean("autologin", true);
+                    loginEditor.apply();
+                    Log.i("autologin", "this is loginActivity");
+                    //Boolean isAuto = autoLogin.getBoolean("autologin", false);
 
 
                     confirmSignUp(user);
