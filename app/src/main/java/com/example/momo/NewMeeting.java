@@ -11,7 +11,76 @@ public class NewMeeting implements Parcelable {
     private int meetingNum;
     private int wantTimeStart, wantTimeEnd;
     private int requiredTime;
+
+
+
+    public NewMeeting(String meetingName, String type, int meetingNum, int wantTimeStart, int wantTimeEnd, int requiredTime, ArrayList<Date> term) {
+        this.meetingName = meetingName;
+        this.type = type;
+        this.meetingNum = meetingNum;
+        this.wantTimeStart = wantTimeStart;
+        this.wantTimeEnd = wantTimeEnd;
+        this.requiredTime = requiredTime;
+        this.term = term;
+    }
+
     private ArrayList<Date> term = new ArrayList<>();
+
+    public String getMeetingName() {
+        return meetingName;
+    }
+
+    public void setMeetingName(String meetingName) {
+        this.meetingName = meetingName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getMeetingNum() {
+        return meetingNum;
+    }
+
+    public void setMeetingNum(int meetingNum) {
+        this.meetingNum = meetingNum;
+    }
+
+    public int getWantTimeStart() {
+        return wantTimeStart;
+    }
+
+    public void setWantTimeStart(int wantTimeStart) {
+        this.wantTimeStart = wantTimeStart;
+    }
+
+    public int getWantTimeEnd() {
+        return wantTimeEnd;
+    }
+
+    public void setWantTimeEnd(int wantTimeEnd) {
+        this.wantTimeEnd = wantTimeEnd;
+    }
+
+    public int getRequiredTime() {
+        return requiredTime;
+    }
+
+    public void setRequiredTime(int requiredTime) {
+        this.requiredTime = requiredTime;
+    }
+
+    public ArrayList<Date> getTerm() {
+        return term;
+    }
+
+    public void setTerm(ArrayList<Date> term) {
+        this.term = term;
+    }
 
     protected NewMeeting(Parcel in) {
         meetingName = in.readString();

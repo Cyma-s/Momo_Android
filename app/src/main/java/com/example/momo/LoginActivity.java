@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
         intent = getIntent();
         nextIntent = intent.getBooleanExtra("isMessage", false);
+        Toast.makeText(LoginActivity.this, "this is " + String.valueOf(nextIntent), Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, "this is " + meetingId, Toast.LENGTH_SHORT).show();
         meetingId = intent.getStringExtra("meetingId");
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
@@ -210,13 +212,13 @@ public class LoginActivity extends AppCompatActivity {
                 Intent nextintent;
                 SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
                 boolean isAuto = autoLogin.getBoolean("autologin", false);
-                if(intent.hasExtra("isMessage")) {
+                if(nextIntent) {
                     Intent inputintent = new Intent(LoginActivity.this, MessageInput.class);
                     inputintent.putExtra("meetingId", meetingId);
                     startActivity(inputintent);
                     finish();
                 }
-                if(isAuto) {
+                else if(isAuto) {
                     nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
                     startActivity(nextintent);
                     finish();

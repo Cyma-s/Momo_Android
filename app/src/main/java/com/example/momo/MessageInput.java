@@ -49,6 +49,8 @@ public class MessageInput extends AppCompatActivity {
 
         if(intent.getAction().equals(Intent.ACTION_VIEW) && !isAuto) {  // 자동 로그인 되어 있지 않은 경우 로그인 창으로 보냄
             Intent loginIntent = new Intent(MessageInput.this, LoginActivity.class);
+            meetingId = intent.getData().getQueryParameter("message");
+            Log.d("TEST", "this meeting id is " + meetingId);
             loginIntent.putExtra("isMessage", true);
             loginIntent.putExtra("meetingId", meetingId);
             startActivity(loginIntent);
