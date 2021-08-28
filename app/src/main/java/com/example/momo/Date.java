@@ -2,13 +2,11 @@ package com.example.momo;
 
 public class Date {
     int day, month, year;
-    String week;
 
-    public Date(int day, int month, int year, String week) {
+    public Date(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
-        this.week = week;
     }
 
     public int getDay() {
@@ -33,13 +31,5 @@ public class Date {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public String getWeek() {
-        return week;
-    }
-
-    public void setWeek(String week) {
-        this.week = week;
     }
 }
