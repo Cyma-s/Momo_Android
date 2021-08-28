@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
     private Boolean isTrue = false;
     private Boolean nextIntent = false;
     private String meetingId;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mContext = this;
 
-        Intent intent = getIntent();
+        intent = getIntent();
         nextIntent = intent.getBooleanExtra("isMessage", false);
         meetingId = intent.getStringExtra("meetingId");
 
@@ -209,6 +210,12 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent;
                 SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
                 Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                if(nextIntent) {
+                    Intent inputintent = new Intent(LoginActivity.this, MessageInput.class);
+                    inputintent.putExtra("meetingId", meetingId);
+                    startActivity(inputintent);
+                    finish();
+                }
                 if(isAuto) {
                     intent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
                     startActivity(intent);
