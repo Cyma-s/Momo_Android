@@ -156,12 +156,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     setSharedPreferences(user); // 유저 정보 sharedPreferences에 저장
 
-                    SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
-                    SharedPreferences.Editor loginEditor = autoLogin.edit();
-                    loginEditor.putBoolean("autologin", true);
-                    loginEditor.apply();
-                    Log.i("autologin", "this is loginActivity");
-                    //Boolean isAuto = autoLogin.getBoolean("autologin", false);
 
 
                     confirmSignUp(user);
@@ -212,26 +206,44 @@ public class LoginActivity extends AppCompatActivity {
                 Intent nextintent;
                 SharedPreferences autoLogin = getSharedPreferences("autologin", MODE_PRIVATE);
                 boolean isAuto = autoLogin.getBoolean("autologin", false);
-                if(nextIntent) {
+                if(nextIntent) {  // MessageInput에서 여기로 왔을 경우
+                    SharedPreferences.Editor loginEditor = autoLogin.edit();
+                    loginEditor.putBoolean("autologin", true);
+                    loginEditor.apply();
+                    Log.i("autologin", "this is loginActivity");
+                    //Boolean isAuto = autoLogin.getBoolean("autologin", false);
                     Intent inputintent = new Intent(LoginActivity.this, MessageInput.class);
                     inputintent.putExtra("meetingId", meetingId);
                     startActivity(inputintent);
                     finish();
                 }
-                else if(isAuto) {
-                    nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    startActivity(nextintent);
-                    finish();
+                else {
+                    if(isAuto) {  // 자동 로그인이 되어 있는지 확인 -> Home으로 이동
+                        SharedPreferences.Editor loginEditor = autoLogin.edit();
+                        loginEditor.putBoolean("autologin", true);
+                        loginEditor.apply();
+                        Log.i("autologin", "this is loginActivity");
+                        //Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                        nextintent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(nextintent);
+                        finish();
+                    }
+                    if (!isTrue) {  // 이미 회원가입 함 -> HomeActivity
+                        SharedPreferences.Editor loginEditor = autoLogin.edit();
+                        loginEditor.putBoolean("autologin", true);
+                        loginEditor.apply();
+                        Log.i("autologin", "this is loginActivity");
+                        //Boolean isAuto = autoLogin.getBoolean("autologin", false);
+                        nextintent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(nextintent);
+                        finish();
+                    } else {  // 회원 가입이 안 되어 있음 -> UserInfoInputActivity
+                        nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
+                        startActivity(nextintent);
+                        finish();
+                    }
                 }
-                if (!isTrue) {
-                    nextintent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(nextintent);
-                    finish();
-                } else {
-                    nextintent = new Intent(LoginActivity.this, UserInfoInputActivity.class);
-                    startActivity(nextintent);
-                    finish();
-                }
+
             }
         }, 0);
 
